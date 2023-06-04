@@ -1,7 +1,6 @@
 #include <fstream> 
 #include <string>  
-#include <iostream> 
-#include <Windows.h> 
+#include <iostream>  
 #include <string> 
 #include <search.h> 
 #include "console.cpp" 

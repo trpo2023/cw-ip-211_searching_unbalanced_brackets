@@ -1,7 +1,6 @@
 #include <fstream>
 #include <string> 
 #include <iostream>
-#include <Windows.h>
 #include <string>
 //#include "SD.h"
 using namespace std;
