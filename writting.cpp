@@ -3,16 +3,24 @@
 #include <iostream>
 #include <Windows.h>
 #include <string>
-#include <search.h>
-//#include <search.cpp>
 //#include "SD.h"
 using namespace std;
-int searching(int n);
-int cheking();
-int wrote();
-int main() {
-    cout << "privet hozain, now i work" << endl;
-    wrote();
-    int countmemory = cheking();
-    searching(countmemory);
+
+int wrote()
+{
+    std::string line;
+    std::ofstream out;
+    std::ifstream in("code.cpp");
+    out.open("file.txt");
+    if (in.is_open())
+    {
+        while (std::getline(in, line))
+        {
+            out << line << std::endl;
+        }
+    }
+    out.close();
+    std::cout << "File C++ is writting in file.txt" << std::endl;
+    in.close();
+    return 0;
 }
