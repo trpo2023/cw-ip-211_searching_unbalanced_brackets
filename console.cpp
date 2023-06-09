@@ -8,6 +8,7 @@ std::string window() {
  setlocale(LC_ALL, "RUS"); 
  char ch; 
  string st; 
+ string str;
  ofstream file("file.txt"); 
  while (1) { 
   cout << "\nМеню :"; 
@@ -18,7 +19,7 @@ std::string window() {
   cin >> ch; 
       switch (ch) {
     case'1':
-      cout << "\nВведите полный адрес файла(не забутьте заменить 1'\' на 2'\' и в конце нажать Enter -> ctlr+x -> Enter для Windows или Enter -> ctlr+d -> Enter) : ";
+      cout << "\nВведите полный адрес файла(не забутьте заменить 1'\\' на 2'\\\\' и в конце нажать Enter -> ctlr+x -> Enter для Windows или Enter -> ctlr+d -> Enter) : ";
       while (getline(cin, str)) {
         st = st + str;
       }

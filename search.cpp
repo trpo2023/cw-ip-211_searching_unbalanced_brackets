@@ -134,11 +134,11 @@ int searching(int n) {
     for (int i = 0; i < n; i++) {
         if (Skobki[i] != '0') {
             chetTrue++;
-            if (chetTrue == 1)cout << "Kod ne  norm" << endl << "Bad line:";
-            cout << indexi[i];
+            if (chetTrue == 1)cout << "Your code is bad" << endl;
+            cout<< "Bad line:" << indexi[i]<<endl;
         }
     }
-    if (chetTrue == 0) cout << "Kod norm";
+    if (chetTrue == 0) cout << "Your code is good"<<endl;
     file.close();
     return 0;
 }
