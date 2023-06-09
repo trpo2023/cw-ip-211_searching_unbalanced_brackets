@@ -1,12 +1,13 @@
-#include <fstream>
 #include "String.h"
+#include <fstream>
 #include <iostream>
 #include <string>
 //#include "SD.h"
 using namespace std;
-int cheking() {
+int cheking()
+{
     std::string files;
-    ifstream file(files);    // opening a file
+    ifstream file(files); // opening a file
 
     if (!file.is_open()) {
         cerr << "file can't be open" << endl;
@@ -16,19 +17,26 @@ int cheking() {
     int count = 0;
     char ch;
     //  "{"
-    int ct = 0; int ct1 = 0;
-    //counting brackets not contained between the characters " and '
+    int ct = 0;
+    int ct1 = 0;
+    // counting brackets not contained between the characters " and '
     while (file.get(ch)) {
-        //Checking for the closeness of quotation marks
+        // Checking for the closeness of quotation marks
         if (ch == char(0x22)) {
-            if (ct1 == 0)ct1++;
-            else { ct1 = 0; }
+            if (ct1 == 0)
+                ct1++;
+            else {
+                ct1 = 0;
+            }
         }
         if (ch == char(0x27)) {
-            if (ct == 0)ct++;
-            else { ct = 0; }
+            if (ct == 0)
+                ct++;
+            else {
+                ct = 0;
+            }
         }
-        //Searching for brackets and entering them into the Skobki array
+        // Searching for brackets and entering them into the Skobki array
         if (ch == '{' and ct == 0 and ct1 == 0) {
             count++;
         }
@@ -54,9 +62,10 @@ int cheking() {
     return count;
 }
 
-int searching(int n) {
+int searching(int n)
+{
     std::string filess;
-    ifstream file(filess);    // opening a file
+    ifstream file(filess); // opening a file
 
     if (!file.is_open()) {
         cerr << "file can't be open" << endl;
@@ -65,21 +74,29 @@ int searching(int n) {
     char ch;
     //  "{"
     int chetstr = 0;
-    int chet = 0; int ct = 0; int ct1 = 0;
-    //counting brackets not contained between the characters " and '
+    int chet = 0;
+    int ct = 0;
+    int ct1 = 0;
+    // counting brackets not contained between the characters " and '
 
     string line;
     char* Skobki = new char[n];
     int* indexi = new int[n];
     while (file.get(ch)) {
-        //Checking for the closeness of quotation marks
+        // Checking for the closeness of quotation marks
         if (ch == char(0x22)) {
-            if (ct1 == 0)ct1++;
-            else { ct1 = 0; }
+            if (ct1 == 0)
+                ct1++;
+            else {
+                ct1 = 0;
+            }
         }
         if (ch == char(0x27)) {
-            if (ct == 0)ct++;
-            else { ct = 0; }
+            if (ct == 0)
+                ct++;
+            else {
+                ct = 0;
+            }
         }
         if (ch == '\n') {
             ++chetstr;
@@ -91,26 +108,32 @@ int searching(int n) {
         }
         if (ch == '}' and ct == 0 and ct1 == 0) {
             Skobki[chet] = '}';
-            indexi[chet] = chetstr; chet++;
+            indexi[chet] = chetstr;
+            chet++;
         }
         if (ch == '[' and ct == 0 and ct1 == 0) {
             Skobki[chet] = '[';
-            indexi[chet] = chetstr; chet++;
+            indexi[chet] = chetstr;
+            chet++;
         }
         if (ch == ']' and ct == 0 and ct1 == 0) {
             Skobki[chet] = ']';
-            indexi[chet] = chetstr; chet++;
+            indexi[chet] = chetstr;
+            chet++;
         }
         if (ch == '(' and ct == 0 and ct1 == 0) {
             Skobki[chet] = '(';
-            indexi[chet] = chetstr; chet++;
+            indexi[chet] = chetstr;
+            chet++;
         }
         if (ch == ')' and ct == 0 and ct1 == 0) {
             Skobki[chet] = ')';
-            indexi[chet] = chetstr; chet++;
+            indexi[chet] = chetstr;
+            chet++;
         }
     }
-    //Search for paired brackets and their pairwise removal from the Skobki array
+    // Search for paired brackets and their pairwise removal from the Skobki
+    // array
     for (int i = 0; i < n - 1; i++) {
         for (int j = i; j < n; j++) {
             if (Skobki[i] != '0') {
@@ -136,11 +159,13 @@ int searching(int n) {
     for (int i = 0; i < n; i++) {
         if (Skobki[i] != '0') {
             chetTrue++;
-            if (chetTrue == 1)cout << "Your code is bad" << endl;
-            cout<< "Bad line:" << indexi[i]<<endl;
+            if (chetTrue == 1)
+                cout << "Your code is bad" << endl;
+            cout << "Bad line:" << indexi[i] << endl;
         }
     }
-    if (chetTrue == 0) cout << "Your code is good"<<endl;
+    if (chetTrue == 0)
+        cout << "Your code is good" << endl;
     file.close();
     return chetTrue;
 }
