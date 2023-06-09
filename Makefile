@@ -1,39 +1,49 @@
 
 all: main testing
 
-main: main.o console.o search.o writting.o
-	g++ -o app main.o console.o search.o writting.o
+main: src/main.o src/console.o src/search.o src/writting.o
+	g++ -o src/app src/main.o src/console.o src/search.o src/writting.o
 
-main.o: main.cpp
-	g++ -Wall -Wextra -c main.cpp -MMD
+main.o: src/main.cpp
+	g++ -Wall -Wextra -c src/main.cpp -MMD
 	
-console.o: console.cpp
-	g++ -Wall -Wextra -c console.cpp -MMD
+console.o: src/console.cpp
+	g++ -Wall -Wextra -c src/console.cpp -MMD
 
-search.o: search.cpp
-	g++ -Wall -Wextra -c search.cpp -MMD
+search.o: src/search.cpp
+	g++ -Wall -Wextra -c src/search.cpp -MMD
 
-writting.o: writting.cpp
-	g++ -Wall -Wextra -c writting.cpp -MMD
+writting.o: src/writting.cpp
+	g++ -Wall -Wextra -c src/writting.cpp -MMD
 	
-testing: main1.o test.o main.o console.o search.o writting.o
-	g++ -o testing main1.o test.o console.o search.o writting.o
+testing: tests/main1.o tests/test.o src/main.o src/console.o src/search.o src/writting.o
+	g++ -o tests/testing tests/main1.o tests/test.o src/console.o src/search.o src/writting.o
 	
-main1.o: main1.cpp
-	g++ -Wall -Wextra -c main1.cpp -MMD
+main1.o: tests/main1.cpp
+	g++ -Wall -Wextra -c test/main1.cpp -MMD
 	
-test.o: test.cpp
-	g++ -Wall -Wextra -c test.cpp -MMD
+test.o: tests/test.cpp
+	g++ -Wall -Wextra -c tests/test.cpp -MMD
+	
 clean:
-	rm app *.o *.d testing
+	rm src/app src/*.o src/*.d -f
+	rm tests/app tests/*.o tests/*.d tests/testing -f
+	
 run: testing
-	./testing
-runapp: app
-	./app
+	./tests/testing
+	
+runap: app
+	./src/app
+	
 start:
+	make
+	make run
+	make runap
+	
+start1:
 	make clean
 	make
 	make run
-	make runapp
+	make runap
 	
 
