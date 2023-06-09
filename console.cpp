@@ -1,10 +1,10 @@
 #include <iostream> 
-#include <string> 
+#include "String.h"
 #include <fstream> 
  
 using namespace std; 
  
-string window() { 
+std::string window() { 
  setlocale(LC_ALL, "RUS"); 
  char ch; 
  string st; 

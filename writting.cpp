@@ -1,5 +1,5 @@
 #include <fstream> 
-#include <string>  
+#include "String.h"
 #include <iostream> 
 #include <string> 
  

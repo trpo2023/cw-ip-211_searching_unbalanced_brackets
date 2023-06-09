@@ -1,10 +1,9 @@
 #include <fstream> 
 #include <string>  
 #include <iostream>  
-#include <string> 
+#include "String.h"
 #include <search.h> 
-#include "console.cpp" 
-//#include <search.cpp> 
+
 //#include "SD.h" 
 using namespace std; 
 int searching(int n); 

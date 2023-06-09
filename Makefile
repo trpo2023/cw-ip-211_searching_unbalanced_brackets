@@ -1,14 +1,20 @@
-CC=g++
-CFLAGS=-c -Wall
-LDFLAGS=functions.h
-SOURCES=main.cpp search.cpp writting.cpp console.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=win
+all: main
 
-all: $(SOURCES) $(EXECUTABLE)
-  
-$(EXECUTABLE): $(OBJECTS) 
-  $(CC) $(LDFLAGS) $(OBJECTS) -o $@
+main: main.o console.o search.o writting.o
+	g++ -o app main.o console.o search.o writting.o
 
-.cpp.o:
-  $(CC) $(CFLAGS) $< -o $@
+main.o: main.cpp
+	g++ -Wall -Wextra -c main.cpp -MMD
+		
+console.o: console.cpp
+	g++ -Wall -Wextra -c console.cpp -MMD
+	
+search.o: search.cpp
+	g++ -Wall -Wextra -c search.cpp -MMD
+	
+writting.o: writting.cpp
+	g++ -Wall -Wextra -c writting.cpp -MMD
+clean:
+	rm app *.o *.d
+	
+

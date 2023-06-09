@@ -1,5 +1,5 @@
 #include <fstream>
-#include <string> 
+#include "String.h"
 #include <iostream>
 #include <string>
 //#include "SD.h"
@@ -15,8 +15,7 @@ int cheking() {
     int count = 0;
     char ch;
     //  "{"
-    int chetstr = 0;
-    int chet = 0; int ct = 0; int ct1 = 0;
+    int ct = 0; int ct1 = 0;
     //counting brackets not contained between the characters " and '
     while (file.get(ch)) {
         //Checking for the closeness of quotation marks
@@ -143,3 +142,4 @@ int searching(int n) {
     file.close();
     return 0;
 }
+
