@@ -25,7 +25,7 @@ main1.o: main1.cpp
 test.o: test.cpp
 	g++ -Wall -Wextra -c test.cpp -MMD
 clean:
-	rm app *.o *.d
+	rm app *.o *.d testing
 run: testing
 	./testing
 runapp: app

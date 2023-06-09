@@ -19,19 +19,17 @@ Abstract:
 #ifndef _WINDOWS_
 #define _WINDOWS_
 
-
 #include <sdkddkver.h>
 
 #ifndef _INC_WINDOWS
 #define _INC_WINDOWS
 
-#if defined (_MSC_VER) && (_MSC_VER >= 1020)
+#if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
 #endif
 
 #pragma region Application Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-
 
 /*  If defined, the following flags inhibit definition
  *     of the indicated items.
@@ -84,7 +82,7 @@ Abstract:
 #else
 
 #if defined(RC_INVOKED)
- /* Turn off a bunch of stuff to ensure that RC files compile OK. */
+/* Turn off a bunch of stuff to ensure that RC files compile OK. */
 #define NOATOM
 #define NOGDI
 #define NOGDICAPMASKS
@@ -104,34 +102,48 @@ Abstract:
 #define NOMCX
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_IX86)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_IX86)
 #define _X86_
 #if !defined(_CHPE_X86_ARM64_) && defined(_M_HYBRID)
 #define _CHPE_X86_ARM64_
 #endif
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_AMD64)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_AMD64)
 #define _AMD64_
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_ARM)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_ARM)
 #define _ARM_
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_ARM64)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_ARM64)
 #define _ARM64_
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_M68K)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_M68K)
 #define _68K_
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_MPPC)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_IA64_) \
+        && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_)           \
+        && defined(_M_MPPC)
 #define _MPPC_
 #endif
 
-#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_) && !defined(_M_IX86) && !defined(_AMD64_) && !defined(_ARM_) && !defined(_ARM64_) && defined(_M_IA64)
+#if !defined(_68K_) && !defined(_MPPC_) && !defined(_X86_)           \
+        && !defined(_M_IX86) && !defined(_AMD64_) && !defined(_ARM_) \
+        && !defined(_ARM64_) && defined(_M_IA64)
 #if !defined(_IA64_)
 #define _IA64_
 #endif /* !_IA64_ */
@@ -143,34 +155,34 @@ Abstract:
 #endif
 #endif
 
-#if defined (_MSC_VER)
-#if ( _MSC_VER >= 800 )
+#if defined(_MSC_VER)
+#if (_MSC_VER >= 800)
 #ifndef __cplusplus
-#pragma warning(disable:4116)       /* TYPE_ALIGNMENT generates this - move it */
-                                    /* outside the warning push/pop scope. */
+#pragma warning(disable : 4116) /* TYPE_ALIGNMENT generates this - move it */
+/* outside the warning push/pop scope. */
 #endif
 #endif
 #endif
 
 #ifndef RC_INVOKED
-#if     ( _MSC_VER >= 800 )
-#pragma warning(disable:4514)
+#if (_MSC_VER >= 800)
+#pragma warning(disable : 4514)
 #ifndef __WINDOWS_DONT_DISABLE_PRAGMA_PACK_WARNING__
-#pragma warning(disable:4103)
+#pragma warning(disable : 4103)
 #endif
 #if _MSC_VER >= 1200
 #pragma warning(push)
 #endif
-#pragma warning(disable:4001)
-#pragma warning(disable:4201)
-#pragma warning(disable:4214)
+#pragma warning(disable : 4001)
+#pragma warning(disable : 4201)
+#pragma warning(disable : 4214)
 #endif
 #include <excpt.h>
 #include <stdarg.h>
 #endif /* RC_INVOKED */
 
-#include <windef.h>
 #include <winbase.h>
+#include <windef.h>
 #include <wingdi.h>
 #include <winuser.h>
 #if !defined(_MAC) || defined(_WIN32NLS)
@@ -228,7 +240,6 @@ Abstract:
 #include <winwlm.h>
 #endif
 
-
 #ifdef INC_OLE2
 #include <ole2.h>
 #endif /* INC_OLE2 */
@@ -238,7 +249,7 @@ Abstract:
 #include <winsvc.h>
 #endif
 
-#if(WINVER >= 0x0400)
+#if (WINVER >= 0x0400)
 #ifndef NOMCX
 #include <mcx.h>
 #endif /* NOMCX */
@@ -250,13 +261,13 @@ Abstract:
 #endif
 
 #ifndef RC_INVOKED
-#if     ( _MSC_VER >= 800 )
+#if (_MSC_VER >= 800)
 #if _MSC_VER >= 1200
 #pragma warning(pop)
 #else
-#pragma warning(default:4001)
-#pragma warning(default:4201)
-#pragma warning(default:4214)
+#pragma warning(default : 4001)
+#pragma warning(default : 4201)
+#pragma warning(default : 4214)
 /* Leave 4514 disabled.  It's an unneeded warning anyway. */
 #endif
 #endif
@@ -264,7 +275,8 @@ Abstract:
 
 #endif /* RC_INVOKED */
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | \
+          WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
 #endif /* _INC_WINDOWS */
