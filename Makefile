@@ -2,7 +2,7 @@
 all: main testing
 
 main: src/main.o src/console.o src/search.o src/writting.o
-	g++ -o src/app src/main.o src/console.o src/search.o src/writting.o
+	g++ -o app src/main.o src/console.o src/search.o src/writting.o
 
 main.o: src/main.cpp
 	g++ -Wall -Wextra -c src/main.cpp -MMD
@@ -26,14 +26,14 @@ test.o: tests/test.cpp
 	g++ -Wall -Wextra -c tests/test.cpp -MMD
 	
 clean:
-	rm src/app src/*.o src/*.d -f
+	rm app src/*.o src/*.d -f
 	rm tests/app tests/*.o tests/*.d tests/testing -f
 	
 run: testing
 	./tests/testing
 	
 runap: app
-	./src/app
+	./app
 	
 start:
 	make

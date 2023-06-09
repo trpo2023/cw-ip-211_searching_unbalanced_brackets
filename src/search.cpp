@@ -6,7 +6,7 @@
 using namespace std;
 int cheking()
 {
-    std::string files;
+    std::string files="file.txt";
     ifstream file(files); // opening a file
 
     if (!file.is_open()) {
