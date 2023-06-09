@@ -5,7 +5,8 @@
 //#include "SD.h"
 using namespace std;
 int cheking() {
-    ifstream file("file.txt");    // opening a file
+    std::string files;
+    ifstream file(files);    // opening a file
 
     if (!file.is_open()) {
         cerr << "file can't be open" << endl;
@@ -54,7 +55,8 @@ int cheking() {
 }
 
 int searching(int n) {
-    ifstream file("file.txt");    // opening a file
+    std::string filess;
+    ifstream file(filess);    // opening a file
 
     if (!file.is_open()) {
         cerr << "file can't be open" << endl;
@@ -140,6 +142,6 @@ int searching(int n) {
     }
     if (chetTrue == 0) cout << "Your code is good"<<endl;
     file.close();
-    return 0;
+    return chetTrue;
 }
 
