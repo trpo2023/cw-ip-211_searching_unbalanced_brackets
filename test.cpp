@@ -1,7 +1,7 @@
 #include "ctest.h"
 #include "functions.h"
 #include "search.h"
-#include "string.h"
+#include "String.h"
 #include <fstream>
 #include <iostream>
 #include <string>
