@@ -11,7 +11,7 @@ int cheking();
 int wrote(string str); 
 string window(); 
 int main() { 
-    cout << "privet hozain, now i work" << endl; 
+    cout << "Privet hozain, now i work" << endl; 
     string sf = window(); 
     if (sf != "0") { 
         wrote(sf); 
