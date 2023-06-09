@@ -16,25 +16,28 @@ std::string window() {
   cout << "\nВведите 0 для выхода из программы\n"; 
  zn: 
   cin >> ch; 
-  switch (ch) { 
-  case'1': 
-   cout << "\nВведите полный адрес файла : "; 
-   cin >> st; 
-   file.close(); 
-   return st; 
-  case'2': 
-   cout << "\nВведите код в консоль(для окончания ввода нажмите 'cntl+z'): \n"; 
-   while (getline(cin, st)) { 
-    file << st << endl; 
-   } 
-   file.close(); 
-   return "0"; 
-  case'0': 
-   return "0"; 
-   break; 
-  default: 
-   cout << "\nВвод неверных данных, повторите попытку снова "; 
-   goto zn; 
-  } 
+      switch (ch) {
+    case'1':
+      cout << "\nВведите полный адрес файла(не забутьте заменить 1'\' на 2'\' и в конце нажать Enter -> ctlr+x -> Enter для Windows или Enter -> ctlr+d -> Enter) : ";
+      while (getline(cin, str)) {
+        st = st + str;
+      }
+      cout << st;
+      file.close();
+      return st;
+    case'2':
+      cout << "\nВведите код в консоль(для окончания ввода нажмите Enter -> ctlr+x -> Enter для Windows или Enter -> ctlr+d -> Enter): \n";
+      while (getline(cin, st)) {
+        file << st << endl;
+      }
+      file.close();
+      return "0";
+    case'0':
+      return "0";
+      break;
+    default:
+      cout << "\nВвод неверных данных, повторите попытку снова ";
+      goto zn;
+    } 
  } 
 }
