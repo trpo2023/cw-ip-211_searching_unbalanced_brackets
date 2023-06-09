@@ -6,7 +6,7 @@
 using namespace std;
 int cheking()
 {
-    std::string files="file.txt";
+    char files[] = "file.txt";
     ifstream file(files); // opening a file
 
     if (!file.is_open()) {
@@ -64,7 +64,7 @@ int cheking()
 
 int searching(int n)
 {
-    std::string filess;
+    char filess[] = "file.txt";
     ifstream file(filess); // opening a file
 
     if (!file.is_open()) {

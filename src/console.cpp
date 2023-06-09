@@ -40,7 +40,7 @@ string window()
             file.close();
             return "0";
         case '0':
-            return "0";
+            return "-1";
             break;
         default:
             cout << "\nВвод неверных данных, повторите попытку снова ";

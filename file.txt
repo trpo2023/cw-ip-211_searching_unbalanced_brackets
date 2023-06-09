@@ -1,0 +1,24 @@
+
+
+int searching(int n)
+{
+    char filess[]="file.txt";
+    ifstream file(filess); // opening a file
+
+    if (!file.is_open()) {
+        cerr << "file can't be open" << endl;
+        return 1;
+    }
+    char ch;
+    //  "{"
+    int chetstr = 0;
+    int chet = 0;
+    int ct = 0;
+    int ct1 = 0;
+    // counting brackets not contained between the characters " and '
+
+    string line;
+    char* Skobki = new char[n];
+    int* indexi = new int[n];
+    while (file.get(ch)) {
+        // Checking fo

@@ -8,28 +8,28 @@
 
 CTEST(searching, test1)
 {
-    std::string files = "test1.txt";
-    std::string filess = "test1.txt";
+    char files[] = "cw-ip-211_searching_unbalanced_brackets/test/test1.txt";
+    char filess[] = "cw-ip-211_searching_unbalanced_brackets/test/test1.txt";
     int a = cheking();
-    int real = 1;
+    int real = 2;
     int exp = searching(a);
     ASSERT_EQUAL(exp, real);
 }
 CTEST(searching, test2)
 {
-    std::string files = "test2.txt";
-    std::string filess = "test2.txt";
+	char files[] = "cw-ip-211_searching_unbalanced_brackets/test/test2.txt";
+    char filess[] = "cw-ip-211_searching_unbalanced_brackets/test/test2.txt";
     int a = cheking();
-    int real = 1;
+    int real = 2;
     int exp = searching(a);
     ASSERT_EQUAL(exp, real);
 }
 CTEST(searching, test3)
 {
-    std::string files = "test3.txt";
-    std::string filess = "test3.txt";
+    char files[] = "cw-ip-211_searching_unbalanced_brackets/test/test3.txt";
+    char filess[] = "cw-ip-211_searching_unbalanced_brackets/test/test3.txt";
     int a = cheking();
-    int real = 1;
+    int real = 2;
     int exp = searching(a);
     ASSERT_EQUAL(exp, real);
 }
