@@ -4,6 +4,7 @@
 #include "string.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 
 CTEST(searching, test1)
 {
