@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::string window()
+string window()
 {
     setlocale(LC_ALL, "RUS");
     char ch;
