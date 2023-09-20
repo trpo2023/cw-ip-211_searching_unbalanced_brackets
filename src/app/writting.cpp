@@ -1,7 +1,7 @@
 #include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
-//#include <string>
+// the file should not be modified!!!!!
 
 using namespace std;
 

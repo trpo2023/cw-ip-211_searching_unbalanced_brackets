@@ -1,8 +1,6 @@
 #include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
-//#include <string>
-//#include "SD.h"
 using namespace std;
 
 char* readFile(char files[])

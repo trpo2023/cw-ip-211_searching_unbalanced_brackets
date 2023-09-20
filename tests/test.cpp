@@ -1,10 +1,7 @@
 #include "../src/app_lib/String.h"
 #include "../src/app_lib/ctest.h"
-//#include "../src/app_lib/functions.h"
-//#include "../src/app_lib/search.h"
 #include <fstream>
 #include <iostream>
-//#include <string>
 int cheking(char fill[]);
 int numbersumbols1(char arr[], int cols);
 // testing numbersumbols1

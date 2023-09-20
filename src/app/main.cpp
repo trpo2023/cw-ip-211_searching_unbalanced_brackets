@@ -1,8 +1,6 @@
 #include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
-//#include <search.h>
-//#include <string>
 using namespace std;
 int searching(int n);
 char fille[] = "file.txt";
@@ -26,4 +24,5 @@ int main()
     int countmemory = cheking(fille);
     cout << "Quantity '{}[]': " << countmemory << endl;
     searching(countmemory);
+    remove("file.txt");
 }
