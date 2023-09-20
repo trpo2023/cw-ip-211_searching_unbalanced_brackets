@@ -9,9 +9,9 @@ using namespace std;
 int searching(int n);
 char fille[] = "file.txt";
 int cheking(char fille[]);
-char* readFile(char fille[]);
-int numbersumbols(char fille[]);
-int numbersumbols1(char arr[], int cols);
+// char* readFile(char fille[]);
+// int numbersumbols(char fille[]);
+// int numbersumbols1(char arr[], int cols);
 int wrote(string str);
 string window();
 int main()
