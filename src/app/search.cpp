@@ -181,7 +181,7 @@ int cheking(char files[])
     return count;
 }
 
-int searching(int n)
+void searching(int n)
 {
     char filess[] = "file.txt";
     ifstream file(filess); // opening a file
@@ -288,6 +288,4 @@ int searching(int n)
         cout << "Your code is good" << endl;
     }
     file.close();
-    return chetTrue;
 }
-
