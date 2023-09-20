@@ -4,7 +4,7 @@
 //#include "../src/app_lib/search.h"
 #include <fstream>
 #include <iostream>
-#include <string>
+//#include <string>
 int cheking(char fill[]);
 int numbersumbols1(char arr[], int cols);
 // testing numbersumbols1
