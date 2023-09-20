@@ -1,12 +1,11 @@
-#include "String.h"
+#include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
 #include <string>
 //#include "SD.h"
 using namespace std;
-int cheking()
+int cheking(char files[])
 {
-    char files[] = "file.txt";
     ifstream file(files); // opening a file
 
     if (!file.is_open()) {

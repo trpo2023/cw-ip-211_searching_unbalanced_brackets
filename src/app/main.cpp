@@ -1,4 +1,4 @@
-#include "String.h"
+#include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
 #include <search.h>
@@ -7,7 +7,8 @@
 //#include "SD.h"
 using namespace std;
 int searching(int n);
-int cheking();
+char fille[]="file.txt";
+int cheking(char fille[]);
 int wrote(string str);
 string window();
 int main()
@@ -20,6 +21,6 @@ int main()
     } else if (sf != "0") {
         wrote(sf);
     }
-    int countmemory = cheking();
+    int countmemory = cheking(fille);
     searching(countmemory);
 }
