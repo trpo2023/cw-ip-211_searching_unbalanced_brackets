@@ -24,9 +24,9 @@ int main()
     } else if (sf != "0") {
         wrote(sf);
     }
-    char* arr = readFile(fille);           // massive vsex simvolov
-    int cols = numbersumbols(fille);       // colichestvo vsex simvolov faila
-    int cols1 = numbersumbols1(arr, cols); // chislo skobok
+    // char* arr = readFile(fille);           // massive vsex simvolov
+    // int cols = numbersumbols(fille);       // colichestvo vsex simvolov faila
+    // int cols1 = numbersumbols1(arr, cols); // chislo skobok
 
     int countmemory = cheking(fille);
     cout << "Quantity '{}[]': " << countmemory << endl;
