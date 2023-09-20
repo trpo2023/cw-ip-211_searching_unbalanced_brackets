@@ -7,8 +7,11 @@
 //#include "SD.h"
 using namespace std;
 int searching(int n);
-char fille[]="file.txt";
+char fille[] = "file.txt";
 int cheking(char fille[]);
+char* readFile(char fille[]);
+int numbersumbols(char fille[]);
+int numbersumbols1(char arr[], int cols);
 int wrote(string str);
 string window();
 int main()
@@ -21,6 +24,11 @@ int main()
     } else if (sf != "0") {
         wrote(sf);
     }
+    char* arr = readFile(fille);           // massive vsex simvolov
+    int cols = numbersumbols(fille);       // colichestvo vsex simvolov faila
+    int cols1 = numbersumbols1(arr, cols); // chislo skobok
+
     int countmemory = cheking(fille);
+    cout << "Quantity '{}[]': " << countmemory << endl;
     searching(countmemory);
 }

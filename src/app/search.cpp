@@ -4,6 +4,128 @@
 #include <string>
 //#include "SD.h"
 using namespace std;
+
+char* readFile(char files[])
+{
+    char ch;
+    FILE* pf;
+    pf = fopen(files, "r");
+    int count = 0;
+    while ((ch = getc(pf) != EOF)) {
+        count++;
+    }
+
+    rewind(pf);
+    char* chh = new char[count];
+    int i = 0;
+    while ((ch = getc(pf) != EOF)) {
+        chh[i] = ch;
+        i++;
+    }
+    fclose(pf);
+    return chh;
+}
+
+int numbersumbols(char* files)
+{
+    ifstream file(files); // opening a file
+
+    if (!file.is_open()) {
+        cerr << "file can't be open" << endl;
+        return 1;
+    }
+
+    int count = 0;
+    char ch;
+    //  "{"
+    int ct = 0;
+    int ct1 = 0;
+    // counting brackets not contained between the characters " and '
+    while (file.get(ch)) {
+        // Checking for the closeness of quotation marks
+        if (ch == char(0x22)) {
+            if (ct1 == 0)
+                ct1++;
+            else {
+                ct1 = 0;
+            }
+        }
+        if (ch == char(0x27)) {
+            if (ct == 0)
+                ct++;
+            else {
+                ct = 0;
+            }
+        }
+        // Searching for brackets and entering them into the Skobki array
+        if (ch == '{' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '}' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '[' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == ']' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '(' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == ')' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+    }
+    file.close();
+    return count;
+}
+
+int numbersumbols1(char* chh, int cols)
+{
+    int count = 0;
+    int ch;
+    int ct = 0;
+    int ct1 = 0;
+    for (int i = 0; i < cols; i++) {
+        ch = chh[i];
+        if (ch == char(0x22)) {
+            if (ct1 == 0)
+                ct1++;
+            else {
+                ct1 = 0;
+            }
+        }
+        if (ch == char(0x27)) {
+            if (ct == 0)
+                ct++;
+            else {
+                ct = 0;
+            }
+        }
+        // Searching for brackets and entering them into the Skobki array
+        if (ch == '{' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '}' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '[' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == ']' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == '(' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+        if (ch == ')' and ct == 0 and ct1 == 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
 int cheking(char files[])
 {
     ifstream file(files); // opening a file
@@ -55,8 +177,6 @@ int cheking(char files[])
             count++;
         }
     }
-    cout << "Quantity '{}[]': " << count << endl;
-
     file.close();
     return count;
 }
