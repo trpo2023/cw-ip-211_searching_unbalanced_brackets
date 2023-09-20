@@ -6,7 +6,7 @@
 
 //#include "SD.h"
 using namespace std;
-void searching(int n);
+int searching(int n);
 char fille[] = "file.txt";
 int cheking(char fille[]);
 // char* readFile(char fille[]);

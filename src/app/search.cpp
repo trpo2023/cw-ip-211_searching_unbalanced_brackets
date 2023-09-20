@@ -181,7 +181,7 @@ int cheking(char files[])
     return count;
 }
 
-void searching(int n)
+int searching(int n)
 {
     char filess[] = "file.txt";
     ifstream file(filess); // opening a file

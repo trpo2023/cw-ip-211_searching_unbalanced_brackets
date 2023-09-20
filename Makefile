@@ -32,8 +32,8 @@ clean:
 run: testing
 	./tests/testing
 	
-runap: appp
-	./src/app
+runap: main
+	./src/appp
 	
 start:
 	make
