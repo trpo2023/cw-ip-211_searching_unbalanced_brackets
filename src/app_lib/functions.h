@@ -1,7 +1,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "../app_lib/String.h"
+#include "String.h"
+
 std::string window(char pok);
 int searching(int n);
 int cheking(char fille[]);
@@ -13,4 +14,3 @@ char* counting(char* arr, int count);
 unsigned char* promo(char* arr, int* ind, int count, int& chetTrue);
 char choice();
 void window1();
-char fille[] = "file.txt";

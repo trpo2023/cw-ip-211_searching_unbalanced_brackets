@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
-
+char fille[] = "file.txt";
 int main()
 {
     cout << "Privet hozain, now i work" << endl;
