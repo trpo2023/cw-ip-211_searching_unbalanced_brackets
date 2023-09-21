@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 char fille[] = "file.txt";
+std::string window(char pok);
 int main()
 {
     cout << "Privet hozain, now i work" << endl;
