@@ -127,6 +127,101 @@ int cheking(char files[])
     return count;
 }
 
+char* writtingSupportList(char* arr, int count)
+{
+    char ch;
+    int chetstr = 0;
+    int chet = 0;
+    int ct = 0;
+    int ct1 = 0;
+    char* Skobki = new char[count];
+    // counting brackets not contained between the characters " and '
+    for (int i = 0; i < count; i++) {
+        ch = arr[i];
+        // Checking for the closeness of quotation marks
+        if (ch == char(0x22)) {
+            if (ct1 == 0)
+                ct1++;
+            else {
+                ct1 = 0;
+            }
+        }
+        if (ch == char(0x27)) {
+            if (ct == 0)
+                ct++;
+            else {
+                ct = 0;
+            }
+        }
+        if (ch == '\n') {
+            ++chetstr;
+        }
+        if (ch == '{' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = '{';
+            chet++;
+        }
+        if (ch == '}' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = '}';
+            chet++;
+        }
+        if (ch == '[' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = '[';
+            chet++;
+        }
+        if (ch == ']' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = ']';
+            chet++;
+        }
+        if (ch == '(' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = '(';
+            chet++;
+        }
+        if (ch == ')' and ct == 0 and ct1 == 0) {
+            Skobki[chet] = ')';
+            chet++;
+        }
+    }
+    return Skobki;
+}
+
+char* counting(char* arr, int count)
+{
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i; j < count; j++) {
+            if (arr[i] != '0') {
+                if (arr[i] == '{' and arr[j] == '}') {
+                    arr[i] = '0';
+                    arr[j] = '0';
+                    break;
+                }
+                if (arr[i] == '[' and arr[j] == ']') {
+                    arr[i] = '0';
+                    arr[j] = '0';
+                    break;
+                }
+                if (arr[i] == '(' and arr[j] == ')') {
+                    arr[i] = '0';
+                    arr[j] = '0';
+                    break;
+                }
+            }
+        }
+    }
+    return arr;
+}
+
+unsigned char* promo(char* arr, int* ind, int count, int& chetTrue)
+{
+    unsigned char* answer = new unsigned char[count];
+    for (int i = 0; i < count; i++) {
+        if (arr[i] != '0') {
+            chetTrue++;
+            answer[chetTrue] = ind[i];
+        }
+    }
+    return answer;
+}
+
 int searching(int n)
 {
     char filess[] = "file.txt";

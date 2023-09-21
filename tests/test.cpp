@@ -4,6 +4,9 @@
 #include <iostream>
 int cheking(char fill[]);
 int numbersumbols1(char arr[], int cols);
+char* writtingSupportList(char* arr, int count);
+char* counting(char* arr, int count);
+unsigned char* promo(char* arr, int* ind, int count, int& chetTrue);
 // testing numbersumbols1
 CTEST(searching, test1)
 {
@@ -26,6 +29,86 @@ CTEST(searching, test3)
     int exp = numbersumbols1(mas, 7);
     int real = 2;
     ASSERT_EQUAL(exp, real);
+}
+// testing writtingSupportList - algoritm #1/3 "searching"
+CTEST(searching, test4)
+{
+    char mas[] = "{}";
+    char* exp = writtingSupportList(mas, 3);
+    char real[] = "{}";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test5)
+{
+    char mas[] = "'{'}'['";
+    char* exp = writtingSupportList(mas, 8);
+    char real[] = "}";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test6)
+{
+    char mas[] = "{[]sry[][]4hgd(){(6))}({)bc}()}jkl[][]}";
+    char* exp = writtingSupportList(mas, 40);
+    char real[] = "{[][][](){())}({)}()}[][]}";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test7)
+{
+    char mas[] = "";
+    char* exp = writtingSupportList(mas, 1);
+    char real[] = "";
+    ASSERT_STR(exp, real);
+}
+// testing counting - algoritm #2/3 "searching"
+CTEST(searching, test8)
+{
+    char mas[] = "{}]";
+    char* exp = counting(mas, 4);
+    char real[] = "00]";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test9)
+{
+    char mas[] = "";
+    char* exp = counting(mas, 1);
+    char real[] = "";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test10)
+{
+    char mas[] = "{}[]({[)}]";
+    char* exp = counting(mas, 11);
+    char real[] = "0000000000";
+    ASSERT_STR(exp, real);
+}
+CTEST(searching, test11)
+{
+    char mas[] = "{qw({}][{)])8){[([]0-}]";
+    char* exp = counting(mas, 24);
+    char real[] = "0qw000]0{00)8){0(000-00";
+    ASSERT_STR(exp, real);
+}
+// testing counting - algoritm #3/3 "searching"
+CTEST(searching, test12)
+{
+    char mas[] = "000";
+    int in[] = {3, 5, 8};
+    int expsize = 0;
+    unsigned char* exp = promo(mas, in, 4, expsize);
+    unsigned char* real = new unsigned char[1];
+    int realsize = 1;
+    ASSERT_DATA(exp, expsize, real, realsize);
+}
+
+CTEST(searching, test13)
+{
+    char mas[] = "0000001000";
+    int in[] = {3, 5, 8, 34, 67, 78, 98, 123, 565, 786};
+    int expsize = 0;
+    unsigned char* exp = promo(mas, in, 10, expsize);
+    unsigned char* real = new unsigned char[10];
+    int realsize = 1;
+    ASSERT_DATA(exp, expsize, real, realsize);
 }
 
 /*
