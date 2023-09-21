@@ -3,7 +3,6 @@
 #include <iostream>
 int searching(int n);
 int cheking(char fille[]);
-int wrote(string str);
 int cheking(char fill[]);
 int numbersumbols1(char arr[], int cols);
 char* writtingSupportList(char* arr, int count);

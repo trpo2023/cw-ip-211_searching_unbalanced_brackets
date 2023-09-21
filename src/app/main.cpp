@@ -5,6 +5,7 @@
 using namespace std;
 char fille[] = "file.txt";
 std::string window(char pok);
+int wrote(string str);
 int main()
 {
     cout << "Privet hozain, now i work" << endl;
