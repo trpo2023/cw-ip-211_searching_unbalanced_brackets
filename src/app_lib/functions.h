@@ -1,8 +1,6 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "String.h"
-
 std::string window(char pok);
 int searching(int n);
 int cheking(char fille[]);
