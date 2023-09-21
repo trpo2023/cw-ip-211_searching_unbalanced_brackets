@@ -1,8 +1,8 @@
 #include "../app_lib/String.h"
 #include <fstream>
 #include <iostream>
-
 using namespace std;
+// the file should not be modified!!!!!
 void window1()
 {
     cout << "\nМеню :";
