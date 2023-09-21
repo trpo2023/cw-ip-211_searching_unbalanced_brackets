@@ -1,14 +1,9 @@
 #include "../app_lib/String.h"
+#include "../app_lib/functions.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
-int searching(int n);
-char fille[] = "file.txt";
-int cheking(char fille[]);
-int wrote(string str);
-string window(char pok);
-char choice();
-void window1();
+
 int main()
 {
     cout << "Privet hozain, now i work" << endl;

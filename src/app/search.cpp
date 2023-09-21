@@ -126,7 +126,10 @@ int cheking(char files[])
     file.close();
     return count;
 }
-
+/*This is a special function for test coverage based on the main algorithm of
+ * the "searching" function. It is here that edits are made first and, with
+ * successful tests, the algorithm in the “searching” function is changed.
+ */
 char* writtingSupportList(char* arr, int count)
 {
     char ch;
@@ -183,7 +186,10 @@ char* writtingSupportList(char* arr, int count)
     }
     return Skobki;
 }
-
+/*This is a special function for test coverage based on the main algorithm of
+ * the "searching" function. It is here that edits are made first and, with
+ * successful tests, the algorithm in the “searching” function is changed.
+ */
 char* counting(char* arr, int count)
 {
     for (int i = 0; i < count - 1; i++) {
@@ -209,7 +215,10 @@ char* counting(char* arr, int count)
     }
     return arr;
 }
-
+/*This is a special function for test coverage based on the main algorithm of
+ * the "searching" function. It is here that edits are made first and, with
+ * successful tests, the algorithm in the “searching” function is changed.
+ */
 unsigned char* promo(char* arr, int* ind, int count, int& chetTrue)
 {
     unsigned char* answer = new unsigned char[count];
