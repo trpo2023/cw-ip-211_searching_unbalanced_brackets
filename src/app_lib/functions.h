@@ -11,8 +11,6 @@ int numbersumbols1(char arr[], int cols);
 char* writtingSupportList(char* arr, int count);
 char* counting(char* arr, int count);
 unsigned char* promo(char* arr, int* ind, int count, int& chetTrue);
-//string window(char pok);
 char choice();
 void window1();
 char fille[] = "file.txt";
-//int wrote(string str);
