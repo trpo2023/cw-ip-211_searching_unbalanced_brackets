@@ -106,14 +106,3 @@ CTEST(searching, test13)
     ASSERT_DATA(exp, expsize, real, realsize);
 }
 
-/*
-CTEST(searching, test3)
-{
-    char files[] = "cw-ip-211_searching_unbalanced_brackets/test/test3.txt";
-    char filess[] = "cw-ip-211_searching_unbalanced_brackets/test/test3.txt";
-    int a = cheking();
-    int real = 0;
-    int exp = searching(a);
-    ASSERT_EQUAL(exp, real);
-}
-*/
