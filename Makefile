@@ -1,33 +1,36 @@
 
 all: main testing
 
-main: src/app/main.o src/app/console.o src/app/search.o src/app/writting.o
-	g++ -o src/appp src/app/main.o src/app/console.o src/app/search.o src/app/writting.o
+main: obj/project/main.o obj/project/libmain.a
+	g++ -o src/appp obj/project/main.o obj/project/libmain.a
 
-main.o: src/app/main.cpp
-	g++ -Wall -Wextra -c src/app/main.cpp -MMD
-	
-console.o: src/app/console.cpp
-	g++ -Wall -Wextra -c src/app/console.cpp -MMD
+obj/project/libmain.a: obj/project/console.o obj/project/search.o obj/project/writting.o
+	ar rcs obj/project/libmain.a obj/project/console.o obj/project/search.o obj/project/writting.o
 
-search.o: src/app/search.cpp
-	g++ -Wall -Wextra -c src/app/search.cpp -MMD
+obj/project/main.o: src/app/main.cpp
+	g++ -Wall -Wextra -o obj/project/main.o -c src/app/main.cpp -MMD  -I src
+	
+obj/project/console.o: src/app/console.cpp
+	g++ -Wall -Wextra  -o obj/project/console.o -c src/app/console.cpp -MMD -w -I src
 
-writting.o: src/app/writting.cpp
-	g++ -Wall -Wextra -c src/app/writting.cpp -MMD
+obj/project/search.o: src/app/search.cpp
+	g++ -Wall -Wextra  -o obj/project/search.o -c src/app/search.cpp -MMD  -I src
+
+obj/project/writting.o: src/app/writting.cpp
+	g++ -Wall -Wextra  -o obj/project/writting.o -c src/app/writting.cpp -MMD  -I src
 	
-testing: tests/main1.o tests/test.o src/app/main.o src/app/console.o src/app/search.o src/app/writting.o
-	g++ -o tests/testing tests/main1.o tests/test.o src/app/console.o src/app/search.o src/app/writting.o
+testing: obj/test/main.o obj/test/test.o obj/project/libmain.a
+	g++ -o tests/testing obj/test/main.o obj/test/test.o obj/project/libmain.a
+
+obj/test/main.o: tests/main.cpp
+	g++ -Wall -Wextra  -o obj/test/main.o -c tests/main.cpp -MMD  -I src
 	
-main1.o: tests/main1.cpp
-	g++ -Wall -Wextra -c test/main1.cpp -MMD
-	
-test.o: tests/test.cpp
-	g++ -Wall -Wextra -c tests/test.cpp -MMD
+obj/test/test.o: tests/test.cpp
+	g++ -Wall -Wextra  -o obj/test/test.o -c tests/test.cpp -MMD  -I src
 	
 clean:
-	rm src/appp src/app/*.o src/app/*.d -f
-	rm tests/appp tests/*.o tests/*.d tests/testing -f
+	rm src/appp obj/project/*.o obj/project/*.d obj/project/*.a -f
+	rm tests/appp obj/test/*.o obj/test/*.d tests/testing -f
 	
 run: testing
 	./tests/testing
@@ -45,5 +48,5 @@ start1:
 	make
 	make run
 	make runap
-	
+
 

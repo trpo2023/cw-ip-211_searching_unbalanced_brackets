@@ -1,5 +1,5 @@
 #define CTEST_MAIN
-#include "../src/app_lib/ctest.h"
+#include <app_lib/ctest.h>
 int cheking(char fill[]);
 int main(int argc, const char** argv)
 {

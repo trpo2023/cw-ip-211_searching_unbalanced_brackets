@@ -1,4 +1,5 @@
-#include "../app_lib/String.h"
+#include <app_lib/String.h>
+#include <app_lib/functions.h>
 #include <fstream>
 #include <iostream>
 // the file should not be modified!!!!!

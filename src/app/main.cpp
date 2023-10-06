@@ -1,13 +1,13 @@
-#include "../app_lib/String.h"
-#include "../app_lib/functions.h"
+#include <app_lib/String.h>
+#include <app_lib/functions.h>
 #include <fstream>
 #include <iostream>
 using namespace std;
-char fille[] = "file.txt";
 std::string window(char pok);
 int wrote(string str);
 int main()
 {
+    char fille[] = "file.txt";
     cout << "Privet hozain, now i work" << endl;
     window1();
     char choicep = choice();

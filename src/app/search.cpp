@@ -1,4 +1,5 @@
-#include "../app_lib/String.h"
+#include <app_lib/String.h>
+#include <app_lib/functions.h>
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -338,4 +339,5 @@ int searching(int n)
         cout << "Your code is good" << endl;
     }
     file.close();
+    return 0;
 }

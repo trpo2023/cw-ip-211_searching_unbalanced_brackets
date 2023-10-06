@@ -1,4 +1,5 @@
-#include "../app_lib/String.h"
+#include <app_lib/String.h>
+#include <app_lib/functions.h>
 #include <fstream>
 #include <iostream>
 using namespace std;

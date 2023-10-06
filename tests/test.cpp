@@ -1,6 +1,6 @@
-#include "../src/app_lib/String.h"
-#include "../src/app_lib/ctest.h"
-#include "../src/app_lib/functions.h"
+#include <app_lib/String.h>
+#include <app_lib/ctest.h>
+#include <app_lib/functions.h>
 
 // testing numbersumbols1
 CTEST(searching, test1)
