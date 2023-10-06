@@ -105,4 +105,3 @@ CTEST(searching, test13)
     int realsize = 1;
     ASSERT_DATA(exp, expsize, real, realsize);
 }
-
