@@ -8,7 +8,7 @@ obj/project/libmain.a: obj/project/console.o obj/project/search.o obj/project/wr
 	ar rcs obj/project/libmain.a obj/project/console.o obj/project/search.o obj/project/writting.o
 
 obj/project/main.o: src/app/main.cpp
-	g++ -Wall -Wextra -o obj/project/main.o -c src/app/main.cpp -MMD -w -I src
+	g++ -c -Wall -Wextra -o obj/project/main.o  src/app/main.cpp -MMD -w -I src
 	
 obj/project/console.o: src/app/console.cpp
 	g++ -Wall -Wextra  -o obj/project/console.o -c src/app/console.cpp -MMD -w -I src
