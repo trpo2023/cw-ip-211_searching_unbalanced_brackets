@@ -1,4 +1,6 @@
 *.o
+*.d
+*.a
 tags
 test
 test++
