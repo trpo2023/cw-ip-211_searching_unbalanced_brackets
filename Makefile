@@ -1,4 +1,6 @@
 
+DEPDIR := .d
+
 all: main testing
 
 main: obj/project/main.o obj/project/libmain.a
@@ -32,6 +34,7 @@ clean:
 	rm src/appp obj/project/*.o obj/project/*.d obj/project/*.a -f
 	rm tests/appp obj/test/*.o obj/test/*.d tests/testing -f
 	
+$(shell mkdir -p $(DEPDIR))
 run: testing
 	./tests/testing
 	
