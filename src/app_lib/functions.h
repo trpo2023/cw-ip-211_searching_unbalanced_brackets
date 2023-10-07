@@ -1,4 +1,3 @@
-#pragma once
 #include <fstream>
 #include <iostream>
 int searching(int n);

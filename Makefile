@@ -1,40 +1,47 @@
+.PHONY: all
 
-DEPDIR := .d
+OBJ_DIR = obj
 
 all: main testing
 
-main: obj/project/main.o obj/project/libmain.a
-	g++ -o src/appp obj/project/main.o obj/project/libmain.a
+main: $(OBJ_DIR)/main.o $(OBJ_DIR)/libmain.a
+	g++ -o src/appp $(OBJ_DIR)/main.o $(OBJ_DIR)/libmain.a
 
-obj/project/libmain.a: obj/project/console.o obj/project/search.o obj/project/writting.o
-	ar rcs obj/project/libmain.a obj/project/console.o obj/project/search.o obj/project/writting.o
+$(OBJ_DIR)/libmain.a: $(OBJ_DIR)/console.o $(OBJ_DIR)/search.o $(OBJ_DIR)/writting.o
+	mkdir -p $(OBJ_DIR)
+	ar rcs $(OBJ_DIR)/libmain.a $(OBJ_DIR)/console.o $(OBJ_DIR)/search.o $(OBJ_DIR)/writting.o
 
-obj/project/main.o: src/app/main.cpp
-	g++ -c -Wall -Wextra -o obj/project/main.o  src/app/main.cpp -MMD -w -I src
+$(OBJ_DIR)/main.o: src/app/main.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -c -Wall -Wextra -o $(OBJ_DIR)/main.o  src/app/main.cpp -MMD -w -I src
 	
-obj/project/console.o: src/app/console.cpp
-	g++ -Wall -Wextra  -o obj/project/console.o -c src/app/console.cpp -MMD -w -I src
+$(OBJ_DIR)/console.o: src/app/console.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -Wall -Wextra  -o $(OBJ_DIR)/console.o -c src/app/console.cpp -MMD -w -I src
 
-obj/project/search.o: src/app/search.cpp
-	g++ -Wall -Wextra  -o obj/project/search.o -c src/app/search.cpp -MMD -w -I src
+$(OBJ_DIR)/search.o: src/app/search.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -Wall -Wextra  -o $(OBJ_DIR)/search.o -c src/app/search.cpp -MMD -w -I src
 
-obj/project/writting.o: src/app/writting.cpp
-	g++ -Wall -Wextra  -o obj/project/writting.o -c src/app/writting.cpp -MMD -w -I src
+$(OBJ_DIR)/writting.o: src/app/writting.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -Wall -Wextra  -o $(OBJ_DIR)/writting.o -c src/app/writting.cpp -MMD -w -I src
 	
-testing: obj/test/main.o obj/test/test.o obj/project/libmain.a
-	g++ -o tests/testing obj/test/main.o obj/test/test.o obj/project/libmain.a
+testing: $(OBJ_DIR)/main1.o $(OBJ_DIR)/test.o $(OBJ_DIR)/libmain.a
+	g++ -o tests/testing $(OBJ_DIR)/main1.o $(OBJ_DIR)/test.o $(OBJ_DIR)/libmain.a
 
-obj/test/main.o: tests/main.cpp
-	g++ -Wall -Wextra  -o obj/test/main.o -c tests/main.cpp -MMD -w -I src
+$(OBJ_DIR)/main1.o: tests/main.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -Wall -Wextra -o $(OBJ_DIR)/main1.o -c tests/main.cpp -MMD -w -I src
 	
-obj/test/test.o: tests/test.cpp
-	g++ -Wall -Wextra  -o obj/test/test.o -c tests/test.cpp -MMD -w -I src
+$(OBJ_DIR)/test.o: tests/test.cpp
+	mkdir -p $(OBJ_DIR)
+	g++ -Wall -Wextra -o $(OBJ_DIR)/test.o -c tests/test.cpp -MMD -w -I src
 	
 clean:
-	rm src/appp obj/project/*.o obj/project/*.d obj/project/*.a -f
-	rm tests/appp obj/test/*.o obj/test/*.d tests/testing -f
-	
-$(shell mkdir -p $(DEPDIR))
+	rm src/appp $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(OBJ_DIR)/*.a -f
+	rm tests/appp $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d tests/testing -f
+
 run: testing
 	./tests/testing
 	

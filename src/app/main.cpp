@@ -14,6 +14,7 @@ int main()
     string sf = window(choicep);
     if (sf == "-1") {
         cout << "Bye Bye" << endl;
+        remove("file.txt");
         return 0;
     } else if (sf != "0") {
         wrote(sf);
